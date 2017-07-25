@@ -5,22 +5,16 @@ addons:
   apt:
     packages:
       - xvfb
-git:
-  depth: 10000
-  no-single-branch: true
-branches:
-  only:
-    - /.*/
 before_install:
   - git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
   - git fetch origin
   - git checkout $TRAVIS_BRANCH || git checkout -b $TRAVIS_BRANCH
-  - if [ "$TRAVIS_PULL_REQUEST" == "false" ] ; then git checkout -b $TRAVIS_PULL_REQUEST_BRANCH; fi
+  - if [ "$TRAVIS_PULL_REQUEST" != "false" ] ; then git checkout -b $TRAVIS_PULL_REQUEST_BRANCH; fi
   - echo $TRAVIS_PULL_REQUEST_BRANCH
   - echo $TRAVIS_BRANCH
   - export DISPLAY=':99.0'
   - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-  - git show-branch -a --more=100
+  - git show-branch -a
 script:
   - yarn test
   - yarn reg-suit run -- --verbose --test
