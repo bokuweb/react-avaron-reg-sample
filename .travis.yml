@@ -9,7 +9,6 @@ before_install:
   - git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
   - git fetch origin
   - git checkout $TRAVIS_BRANCH || git checkout -b $TRAVIS_BRANCH
-  # - if [ "$TRAVIS_PULL_REQUEST" != "false" ] ; then git checkout -b $TRAVIS_PULL_REQUEST_BRANCH; fi
   - echo $TRAVIS_PULL_REQUEST_BRANCH
   - echo $TRAVIS_BRANCH
   - export DISPLAY=':99.0'
@@ -17,7 +16,7 @@ before_install:
   - git show-branch -a
 script:
   - yarn test
-  - yarn reg-suit run -- --verbose --test
+  - yarn reg-suit run
 env:
   global:  
     - secure: "M5eZ4zUoxhK/2jgNKcFED3aTrAWBR6fGLVzzjDS1kKthJx2tQ3SXEin4bovdUZHx3o/97T82CX4q2/PTLrKR8ye2EkviJJyb7HNzQOquPu/pM6EbugJw8rm3Gn26SHEYbogB9aeCETCoPb6N1QYExtviUwyA6yCI+FXVWKMY+CoMC5tF+IQisGwDbe4V5SS/smHEd8dElsBUduYhK/06D3dyyXYld+wyux/NPJWPPWQZcg1kiyCo8YxMFQ/9emmd7atj+L3hGoOSk4gU0fsIMPfn4qEeIwjLRwYVhSvl2K55RCzIG0IWtQfc4dVowHQ6fKBM7OXq2HOgWeLcgjoefLHAWPDQ+69yNdXeS44uo/LBOu7HxdRM+Uikc+lOl5/3eArSY8GfM/+pZJfGT1prO429+J9P5hVE4VrpmTz9MmUtkuDGpkHOJVkWIuzqjS1wgihX+6LoFO+rWrenzRNl9K8Elkpi7QuuMDuCaeD2dfYZeV6wkRxUqGvaYQEB7mohZI0ps6rgn4igvMyioYdmd0EebxhDXWko9TVM6lRk9haZTTyExqjpHJI7bXKUk8dCJfNn8QLZ/VSan2HwWKo1goreMBJQnOdGMu8Xq3XJaa7KzbaYzcnFJMWX+57P1NkAotPS+fsSbffDXMys8MXqbs1zlAIjkKoP0FNclbwEacI="

@@ -15,7 +15,7 @@ const Example = () => (
     <MuiThemeProvider>
         <DatePickerDialog
             ref={(e) => { datePicker = e; }}
-            initialDate={new Date(2017, 9, 1)}
+            initialDate={new Date(2017, 10, 1)}
             firstDayOfWeek={0}
             mode="landscape"
         />
