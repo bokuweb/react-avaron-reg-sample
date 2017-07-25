@@ -6,9 +6,15 @@ addons:
     packages:
       - xvfb
 before_install:
-  - git checkout $TRAVIS_PULL_REQUEST_BRANCH || git checkout -b $TRAVIS_PULL_REQUEST_BRANCH
+  - git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+  - git fetch origin
+  - git checkout $TRAVIS_BRANCH || git checkout -b $TRAVIS_BRANCH
+  # - if [ "$TRAVIS_PULL_REQUEST" != "false" ] ; then git checkout -b $TRAVIS_PULL_REQUEST_BRANCH; fi
+  - echo $TRAVIS_PULL_REQUEST_BRANCH
+  - echo $TRAVIS_BRANCH
   - export DISPLAY=':99.0'
   - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+  - git show-branch -a
 script:
   - yarn test
   - yarn reg-suit run -- --verbose --test
