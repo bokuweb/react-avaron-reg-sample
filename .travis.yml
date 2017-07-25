@@ -9,7 +9,6 @@ before_install:
   - git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
   - git fetch origin
   - git checkout $TRAVIS_BRANCH || git checkout -b $TRAVIS_BRANCH
-  # - if [ "$TRAVIS_PULL_REQUEST" != "false" ] ; then git checkout -b $TRAVIS_PULL_REQUEST_BRANCH; fi
   - echo $TRAVIS_PULL_REQUEST_BRANCH
   - echo $TRAVIS_BRANCH
   - export DISPLAY=':99.0'
