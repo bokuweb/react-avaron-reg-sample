@@ -1,0 +1,19 @@
+{
+  "core": {
+    "workingDir": ".reg",
+    "actualDir": "screenshots/actual",
+    "threshold": 0.01
+  },
+  "plugins": {
+    "reg-keygen-git-hash-plugin": true,
+    "reg-notify-github-plugin": {
+      "installationId": "37909",
+      "owner": "bokuweb",
+      "repository": "react-avaron-reg-sample",
+      "prComment": true
+    },
+    "reg-publish-s3-plugin": {
+      "bucketName": "reg-publish-bucket-cf1f1a46-1d10-48b2-a37f-b27373aae836"
+    }
+  }
+}

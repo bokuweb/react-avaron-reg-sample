@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - '8'
+addons:
+  apt:
+    packages:
+      - xvfb
+before_install:
+  - export DISPLAY=':99.0'
+  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+script:
+  - git checkout $TRAVIS_BRANCH || git checkout -b $TRAVIS_BRANCH
+  - yarn test
+  - yarn reg-suit run
+env:
+  global:  
+    - secure: "M5eZ4zUoxhK/2jgNKcFED3aTrAWBR6fGLVzzjDS1kKthJx2tQ3SXEin4bovdUZHx3o/97T82CX4q2/PTLrKR8ye2EkviJJyb7HNzQOquPu/pM6EbugJw8rm3Gn26SHEYbogB9aeCETCoPb6N1QYExtviUwyA6yCI+FXVWKMY+CoMC5tF+IQisGwDbe4V5SS/smHEd8dElsBUduYhK/06D3dyyXYld+wyux/NPJWPPWQZcg1kiyCo8YxMFQ/9emmd7atj+L3hGoOSk4gU0fsIMPfn4qEeIwjLRwYVhSvl2K55RCzIG0IWtQfc4dVowHQ6fKBM7OXq2HOgWeLcgjoefLHAWPDQ+69yNdXeS44uo/LBOu7HxdRM+Uikc+lOl5/3eArSY8GfM/+pZJfGT1prO429+J9P5hVE4VrpmTz9MmUtkuDGpkHOJVkWIuzqjS1wgihX+6LoFO+rWrenzRNl9K8Elkpi7QuuMDuCaeD2dfYZeV6wkRxUqGvaYQEB7mohZI0ps6rgn4igvMyioYdmd0EebxhDXWko9TVM6lRk9haZTTyExqjpHJI7bXKUk8dCJfNn8QLZ/VSan2HwWKo1goreMBJQnOdGMu8Xq3XJaa7KzbaYzcnFJMWX+57P1NkAotPS+fsSbffDXMys8MXqbs1zlAIjkKoP0FNclbwEacI="
+    - secure: "sR9tZjXMZLZi/CTKxM558WWPcgcWuMpSpNqYZJwE4vZQQ1zx8sqeJL2bCydLYhSMn8djpHr7JNGdO3onnPFz8QhByynpdOhpS0fmRlmMhxhS3NcfvnkXQYBze4nCI1tyJjHgG69FXokscsF2Zqx55E/296huQVH/DUO6Faam6S/DL4HTnhOZtG8utf5NsWjukRbBaU1muC0W4WRs2ghtJi3h1HBqdSrs3PG2bKk66xjw4LP5G/xqT76Obla94S2yMAMZdDRYGBIqnW3CvnbPstAaKy9EkNWIk+w2VAJbr7bXzyRtf5+BkWUHZFl+/AQ/+U3CKWZ0I04t9NF9exH9ZhtTYwEpzQyhDGNDwkY0OrZwgTVXeeDfNmLnfSUw01HFLRVYMAUuEqyGwmKhfwe9DRPYF2zSlYf3tHrFp0H8tsr7r77wbHS2QL5ILnTlpWuGdzGVEC8f58sBHe1b+9oZbvHWnYx8eYL5pxYecbu2g4f4AcDROrpXqkiWHD36gkoUpv6CMz0OB1QfYbY2WwqxVNYAghkMNq3Ty7niKUodguj8yYQP8h+NUey2/KUSNoTtlnQ3P8HwF13EFRsq2Okr7Q57RzftEPog0chtd4yuCIIDZNQkecqYJw3b1JoSCjQzDpoTn5+2BEbnRa3kT0IqNCwT6XOFVIBao6c/tDiMDGw="
