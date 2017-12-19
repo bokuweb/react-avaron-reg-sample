@@ -21,11 +21,11 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.24.1",
     "react-tap-event-plugin": "^2.0.1",
-    "reg-keygen-git-hash-plugin": "^0.2.0",
-    "reg-notify-github-plugin": "^0.2.2",
-    "reg-notify-slack-plugin": "^0.2.0",
-    "reg-publish-s3-plugin": "^0.2.3",
-    "reg-suit": "^0.2.4"
+    "reg-keygen-git-hash-plugin": "^0.6.0",
+    "reg-notify-github-plugin": "^0.6.0",
+    "reg-notify-slack-plugin": "^0.6.0",
+    "reg-publish-s3-plugin": "^0.6.0",
+    "reg-suit": "^0.6.0"
   },
   "babel": {
     "presets": [
